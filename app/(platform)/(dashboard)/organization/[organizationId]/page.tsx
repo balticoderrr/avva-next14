@@ -1,5 +1,11 @@
+import Form from './form';
+
 const OrganizationIdPage = () => {
-  return <div>Organization Page</div>;
+  return (
+    <div>
+      <Form />
+    </div>
+  );
 };
 
 export default OrganizationIdPage;

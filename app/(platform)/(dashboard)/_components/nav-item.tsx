@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { Activity, CreditCard, Layout, Settings } from 'lucide-react';
 import Image from 'next/image';
@@ -39,22 +40,22 @@ export const NavItem = ({
     {
       label: 'Boards',
       icon: <Layout className="h-4 w-4 mr-2" />,
-      href: `"/organization/"${organization.id}`,
+      href: `/organization/${organization.id}`,
     },
     {
-      label: 'Boards',
+      label: 'Activity',
       icon: <Activity className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/activity`,
     },
     {
-      label: 'Boards',
+      label: 'Settings',
       icon: <Settings className="h-4 w-4 mr-2" />,
-      href: `"/organization/"${organization.id}/settings`,
+      href: `/organization/${organization.id}/settings`,
     },
     {
-      label: 'Boards',
+      label: 'Billing',
       icon: <CreditCard className="h-4 w-4 mr-2" />,
-      href: `"/organization/"${organization.id}/billing`,
+      href: `/organization/${organization.id}/billing`,
     },
   ];
 
@@ -100,5 +101,15 @@ export const NavItem = ({
         ))}
       </AccordionContent>
     </AccordionItem>
+  );
+};
+NavItem.Skeleton = function SkeletonNavItem() {
+  return (
+    <div className="flex item-center gap-x-2">
+      <div className="w-10 h-10 relative shrink-0">
+        <Skeleton className="h-full w-full absolute" />
+      </div>
+      <Skeleton className="h-10 w-full" />
+    </div>
   );
 };
